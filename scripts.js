@@ -1,7 +1,8 @@
-$("#menu-btn").click(function() {
-    if ($(this).attr("class") === "menu")
+function menu_toggle(){
+    if ($("#menu-btn").attr("class") === "menu")
     {
-        $(this).attr("class","close");
+        $("body").css("overflow-Y", "hidden");
+        $("#menu-btn").attr("class","close");
 
         $("#menu-page").css("top","5vh");
         $("#menu-page").css("left","-5vw");
@@ -12,17 +13,22 @@ $("#menu-btn").click(function() {
             $("#menu-page").css("border-radius","0px");
         },400);
     }
-    else if ($(this).attr("class") === "close")
+    else if ($("#menu-btn").attr("class") === "close")
     {
-        $(this).attr("class","menu");
+        $("body").css("overflow-Y", "auto");
+        $("#menu-btn").attr("class","menu");
 
         $("#menu-page").css("top","-100vh");
         $("#menu-page").css("left","100vw");
             $("#menu-page > text").css("color","transparent");
             $("#menu-page").css("border-radius","50px");
     }
+}
+$("#menu-btn").click(function() {
+    menu_toggle()
 });
 
 function navigate(value){
     $('html,body').animate({scrollTop: $("#"+value).offset().top},'slow');
+    menu_toggle()
 }

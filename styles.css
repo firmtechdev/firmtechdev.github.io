@@ -5,7 +5,7 @@ body{
     margin:0px;
     user-select:none;
     touch-action:manipulation;
-    /*overflow-X:hidden;*/
+    overflow-X:hidden;
     /*color:auto;*/
     font-family:sans-serif;
 }
@@ -81,9 +81,9 @@ section{
 }
 
 #services{
-	background: gray;
+	background: #80808040;
 }
 
 #contact{
-	background: gray;
+	background: #80808040;
 }
