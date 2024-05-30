@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+
+body{
+    transition:300ms;
+    margin:0px;
+    user-select:none;
+    touch-action:manipulation;
+    /*overflow-X:hidden;*/
+    /*color:auto;*/
+    font-family:sans-serif;
+}
+
+#menu-btn { 
+	display: inline-block; 
+	width: 4em; height: 4em; 
+	background: #ffffff40;
+	backdrop-filter: blur(10px);
+	border-radius: 1em; 
+	overflow: hidden; 
+	transform: translateZ(0); 
+	transition: all 0.5s ease; 
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+	position: fixed;
+	z-index: 5;
+	top: 2vw;
+    right: 2vw;
+}
+
+#menu-btn > span { 
+	display: block; 
+	position: relative; 
+	width: 2em; height: 2em; 
+	transition: transform 0.5s ease; 
+	overflow: hidden; 
+	margin: 1em; 
+}
+.s1,.s2,.s3 { 
+	display: block; 
+	background-color: black; 
+	position: absolute; 
+	top: 0; left: 0; 
+	width: 2em; height: 2em; 
+	transition: all 0.5s ease; 
+	border: 1px solid transparent; 
+}
+#menu-btn.menu > span > span { transform: scale(1,0.2) translate(0,-3em); }
+#menu-btn.menu > span > span.s2 { transform: scale(1,0.2) translate(0,0); }
+#menu-btn.menu > span > span.s3 { transform: scale(1,0.2) translate(0,3em); }
+
+#menu-btn.close > span  { transform: rotate(45deg); }
+#menu-btn.close > span > span , #menu-btn.plus > span > span { transform: scale(1,0.2); }
+#menu-btn.close > span > span.s3 , #menu-btn.plus > span > span.s3 { transform: scale(0.2,1); }
+
+#menu-page{
+	position: fixed;
+	z-index: 4;
+	height: 100vh; width: 100vw;
+	background: #80808040;
+	backdrop-filter: blur(10px);
+	border-radius: 50px;
+	transition: 400ms;
+	font-size: 40px;
+	display: flex;
+	flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10vw;
+    top: -100vh;
+    left: 100vw;
+}
+#menu-page > text{
+	transition: 400ms;
+	color: transparent;
+	margin:15px 0px;
+}
+
+section{
+	width: 100vw;
+	height: 100vh;
+}
+
+#services{
+	background: gray;
+}
+
+#contact{
+	background: gray;
+}
