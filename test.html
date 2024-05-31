@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" href="" sizes="any" type="any">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
@@ -15,17 +16,40 @@
         <span class="s3"></span>
     </span>
 </div>
-<div id="menu-page">
+<div id="menu-page" onmousewheel="event.preventDefault()" ontouchmove="event.preventDefault()">
     <text onclick="navigate('about')">About us</text>
     <text onclick="navigate('services')">What we do</text>
     <text onclick="navigate('projects')">What we done</text>
     <text onclick="navigate('contact')">Contact Us</text>
 </div>
+<section id="home">
+    <p>
+        Add some simple text about firmtech
+    </p>
+    <button class="btn btn-primary more" onclick="$('html,body').animate({scrollTop: $('#services').offset().top},'slow');">
+        more
+    </button>
+</section>
 <section id="about">
-
+    <p style="font-size: 24px;">
+        Firmtech is a Software development company.
+        The company has a proud legacy spanning of 
+        over 3 successful years of software development
+        Firmtech was born in 26th August 2017 as a 
+        brainchild of three professionals Muhammed Faris
+        , Rishad and Musafar Sakeen
+        Specialized in Software developing, Web 
+        developing, Android developing, Cloud 
+        computing, Virtual reality and Ogmented reality
+    </p>
 </section>
 <section id="services">
-
+    <p>
+        We provides web applications, softwares and <br/>
+        Android applications development <br/>
+        in elegant user experience, animated and <br/>
+        impressive users interfaces 
+    </p>
 </section>
 <section id="projects">
 
@@ -33,6 +57,9 @@
 <section id="contact">
 
 </section>
+<footer>
+    <p id="copy"></p>
+</footer>
 <script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
