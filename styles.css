@@ -172,6 +172,23 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-style{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #80808080;
+}
+
+.card-dp{
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50px;
+}
 
 footer{
 	height: 10vh;
@@ -199,9 +216,7 @@ footer{
 	        padding-left: 20px;
 	        padding-right: 20px;
 		}
-		.contact-card{
-			background: gray;
-			box-shadow: inset 0px 0px 0px 5px;
+		.card-resp{
 			padding: 25px;
 			width: 100%;
 			min-height: 300px;
@@ -218,9 +233,7 @@ footer{
 	        padding-left: 20px;
 	        padding-right: 20px;
 		}
-		.contact-card{
-			background: gray;
-			box-shadow: inset 0px 0px 0px 5px;
+		.card-resp{
 			padding: 25px;
 			width: 50%;
 			min-height: 300px;
