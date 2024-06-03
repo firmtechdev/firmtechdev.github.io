@@ -28,9 +28,13 @@ $("#menu-btn").click(function() {
     menu_toggle()
 });
 
-function navigate(value){
+function navigate_menu(value){
     $('html,body').animate({scrollTop: $("#"+value).offset().top},'slow');
     menu_toggle()
+}
+
+function navigate(value){
+    $('html,body').animate({scrollTop: $("#"+value).offset().top},'slow');
 }
 
 $("#copy").html("firmtech &copy; 2017-" + new Date().getFullYear().toString());

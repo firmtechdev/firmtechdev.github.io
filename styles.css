@@ -207,6 +207,31 @@ footer{
 	/* ----- RESPONSIVENESS START ----- */
 	@media only screen and (min-width:300px) {
 	/* For mobile: */
+		.logo_1{
+		    background-image: url(logo.svg);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    background-size: 200%;
+		    width: 100vw;
+		    height: 100vh;
+		    position: absolute;
+		    z-index: -1;
+		    opacity: 50%;
+		    transform: translateX(50vw) translateY(0vh) scale(170%);
+		}
+		.logo_2{
+		    top: 250vh;
+		    background-image: url(logo.svg);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    background-size: 200%;
+		    width: 100vw;
+		    height: 100vh;
+		    position: absolute;
+		    z-index: -1;
+		    opacity: 25%;
+		    transform: translateX(-50vw) translateY(0vh) scale(385%);
+		}
 		.more{
 	        width: fit-content;
 	        margin-left: auto;
@@ -224,6 +249,31 @@ footer{
 	}
 	@media only screen and (min-width: 768px) {
 	/* For desktop: */
+		.logo_1{
+			background-image: url(logo.svg);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    background-size: 100%;
+		    width: 100vw;
+		    height: 100vh;
+		    position: absolute;
+		    z-index: -1;
+		    opacity: 50%;
+		    transform: translateX(-41vw) translateY(-37vh) scale(125%);
+		}
+		.logo_2{
+			top: 250vh;
+		    background-image: url(logo.svg);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    background-size: 110%;
+		    width: 100vw;
+		    height: 100vh;
+		    position: absolute;
+		    z-index: -1;
+		    opacity: 25%;
+		    transform: translateX(50vw) translateY(0vh) scale(197%);
+		}
 		.more{
 	        width: fit-content;
 	        margin-left: 10vw;

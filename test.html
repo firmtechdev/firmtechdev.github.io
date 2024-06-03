@@ -17,16 +17,18 @@
     </span>
 </div>
 <div id="menu-page" onmousewheel="event.preventDefault()" ontouchmove="event.preventDefault()">
-    <text onclick="navigate('about')">About us</text>
-    <text onclick="navigate('services')">What we do</text>
-    <text onclick="navigate('projects')">What we done</text>
-    <text onclick="navigate('contact')">Contact Us</text>
+    <text onclick="navigate_menu('about')">About us</text>
+    <text onclick="navigate_menu('services')">What we do</text>
+    <text onclick="navigate_menu('projects')">What we done</text>
+    <text onclick="navigate_menu('contact')">Contact Us</text>
 </div>
+<div class="logo_1"></div>
+<div class="logo_2"></div>
 <section id="home">
     <p>
         Add some simple text about firmtech
     </p>
-    <button class="btn btn-primary more" onclick="$('html,body').animate({scrollTop: $('#services').offset().top},'slow');">
+    <button class="btn btn-primary more" onclick="navigate('about')">
         more
     </button>
 </section>
@@ -58,6 +60,33 @@
         padding-top: 5vh;
         padding-bottom: 5vh;
     ">Our Milestones & Portfolio</p>
+    <div class="card-container">
+        <div class="card-resp">
+            <p align="center" style="font-size: 20px;">UI UX Designs</p>
+            <ul>
+                <li><a href="https://rishad-p.github.io/portfolio/animated-circle" target="_blank">Animated circle</a></li>
+                <li><a href="https://rishad-p.github.io/portfolio/animated-squares" target="_blank">Animated squares</a></li>
+                <li><a href="https://rishad-p.github.io/portfolio/two-animated-squares" target="_blank">Two animated squares</a></li>
+                <li><a href="https://rishad-p.github.io/portfolio/bottom-navigator" target="_blank">bottom-navigator</a></li>
+
+                <li><a href="https://rishad-p.github.io/portfolio/material" target="_blank">Material</a></li>
+                <li><a href="https://rishad-p.github.io/portfolio/bootstrap" target="_blank">bootstrap</a></li>
+                <li><a href="https://rishad-p.github.io/portfolio/WordPress" target="_blank">A WordPress theme</a></li>
+            </ul>
+        </div>
+        <div class="card-resp">
+            <p align="center" style="font-size: 20px;">Software modules</p>
+        </div>
+        <div class="card-resp">
+            <p align="center" style="font-size: 20px;">Websites</p>
+            <ul>
+                <li><a href="https://bluecreekresort.com/" target="_blank">Blue Creek Village Resort</a><br>
+                    <!-- <text style="font-size: 10px;" onclick="navigate('faris')">faris</text>,  -->
+                    <!-- <text style="font-size: 10px;" onclick="navigate('rishad')">rishad</text> -->
+                </li>
+            </ul>
+        </div>
+    </div>
 </section>
 <section id="contact">
     <p style="
@@ -67,6 +96,20 @@
         padding-bottom: 5vh;
     ">We are Developers</p>
     <div class="card-container">
+        <div class="card-resp" id="faris">
+            <div class="card-style">
+                <div style="display: flex;">
+                    <div class="card-dp"></div>
+                    <div style="padding-left: 25px;">
+                        <h4>Faris</h4>
+                        <p style="font-size: 15px;">Add a short description</p>
+                    </div>
+                </div>
+                <p>PH : 0123456789</p>
+                <p>Git</p>
+                <text>Add a detailed description if required (optional)</text>
+            </div>
+        </div>
         <div class="card-resp">
             <div class="card-style">
                 <div style="display: flex;">
@@ -81,15 +124,12 @@
                 <text>Add a detailed description if required (optional)</text>
             </div>
         </div>
-        <div class="card-resp">
-            
-        </div>
-        <div class="card-resp">
+        <div class="card-resp" id="rishad">
             <div class="card-style">
                 <div style="display: flex;">
                     <div class="card-dp"></div>
                     <div style="padding-left: 25px;">
-                        <h4>Name</h4>
+                        <h4>Rishad</h4>
                         <p style="font-size: 15px;">Add a short description</p>
                     </div>
                 </div>
