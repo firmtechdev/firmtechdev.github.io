@@ -208,29 +208,27 @@ footer{
 	@media only screen and (min-width:300px) {
 	/* For mobile: */
 		.logo_1{
-		    background-image: url(logo.svg);
+			background-image: url(logo.svg);
 		    background-repeat: no-repeat;
-		    background-position: center;
-		    background-size: 200%;
+		    background-position: 29% 50%;
+		    background-size: 390%;
 		    width: 100vw;
 		    height: 100vh;
 		    position: absolute;
 		    z-index: -1;
 		    opacity: 50%;
-		    transform: translateX(50vw) translateY(0vh) scale(170%);
 		}
 		.logo_2{
-		    top: 250vh;
+		    top: 200vh;
 		    background-image: url(logo.svg);
 		    background-repeat: no-repeat;
-		    background-position: center;
-		    background-size: 200%;
+		    background-position: 63% -20%;
+		    background-size: 600%;
 		    width: 100vw;
-		    height: 100vh;
+		    height: 200vh;
 		    position: absolute;
 		    z-index: -1;
 		    opacity: 25%;
-		    transform: translateX(-50vw) translateY(0vh) scale(385%);
 		}
 		.more{
 	        width: fit-content;
