@@ -188,6 +188,7 @@ fieldset:disabled a.btn {
     height: 100px;
     background: white;
     border-radius: 50px;
+    background-size: contain;
 }
 
 footer{
