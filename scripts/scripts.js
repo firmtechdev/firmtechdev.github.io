@@ -1,3 +1,12 @@
+$(document).ready(function() {
+    
+    $("#menu-btn").click(function() {
+        menu_toggle()
+    });    
+
+    $("#copy").html("firmtech &copy; 2017-" + new Date().getFullYear().toString());
+});
+
 function menu_toggle(){
     if ($("#menu-btn").attr("class") === "menu")
     {
@@ -24,9 +33,6 @@ function menu_toggle(){
             $("#menu-page").css("border-radius","50px");
     }
 }
-$("#menu-btn").click(function() {
-    menu_toggle()
-});
 
 function navigate_menu(value){
     $('html,body').animate({scrollTop: $("#"+value).offset().top},'slow');
@@ -36,5 +42,3 @@ function navigate_menu(value){
 function navigate(value){
     $('html,body').animate({scrollTop: $("#"+value).offset().top},'slow');
 }
-
-$("#copy").html("firmtech &copy; 2017-" + new Date().getFullYear().toString());

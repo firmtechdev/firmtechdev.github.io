@@ -1,4 +1,188 @@
-Hai, Please wait we are on the track to develop it... :)
-We just started it
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>firmtech</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" href="assets/logo.png" sizes="any" type="any">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
 
+<body>
+    <div class="top-navbar">
+        <div class="logo-div">
+            <img class="logo_1" src="assets/firmtech_long.png"/>
+        </div>
+        <div id="menu-btn" class="menu">
+            <span>
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+            </span>
+        </div>
+    </div>
+    <div id="menu-page" onmousewheel="event.preventDefault()" ontouchmove="event.preventDefault()">
+        <text onclick="navigate_menu('about')">About us</text>
+        <text onclick="navigate_menu('services')">What we do</text>
+        <text onclick="navigate_menu('projects')">What we done</text>
+        <text onclick="navigate_menu('contact')">Contact Us</text>
+    </div>
+
+    <section id="home">
+        <label class="description">
+            Firmtech is a Software development company.
+            The company has a proud legacy spanning of
+            over 3 successful years of software development
+            Firmtech was born in 26th August 2017 as a
+            brainchild of three professionals Muhammed Faris
+            , Rishad and Musafar Sakeen
+            Specialized in Software developing, Web
+            developing, Android developing, Cloud
+            computing, Virtual reality and Ogmented reality
+        </label>
+        <p>
+            Blends innovation and artistry to create elegant softwares
+        </p>
+        <button class="btn btn-primary more" onclick="navigate('about')">
+            more
+        </button>
+    </section>
+    <section id="about">
+        <p style="font-size: 24px;">
+            .....................
+        </p>
+    </section>
+    <section id="services">
+        <p>
+            We provides web applications, softwares and <br />
+            Android applications development <br />
+            in elegant user experience, animated and <br />
+            impressive users interfaces
+        </p>
+    </section>
+    <section id="projects">
+        <p style="
+        font-size: 24px;
+        margin-bottom: 0px;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    ">Our Milestones & Portfolio</p>
+        <div class="card-container">
+            <div class="card-resp">
+                <p align="center" style="font-size: 20px;">UI UX Designs</p>
+                <ul>
+                    <li><a href="https://rishad-p.github.io/portfolio/animated-circle" target="_blank">Animated
+                            circle</a></li>
+                    <li><a href="https://rishad-p.github.io/portfolio/animated-squares" target="_blank">Animated
+                            squares</a></li>
+                    <li><a href="https://rishad-p.github.io/portfolio/two-animated-squares" target="_blank">Two animated
+                            squares</a></li>
+                    <li><a href="https://rishad-p.github.io/portfolio/bottom-navigator"
+                            target="_blank">bottom-navigator</a></li>
+
+                    <li><a href="https://rishad-p.github.io/portfolio/material" target="_blank">Material</a></li>
+                    <li><a href="https://rishad-p.github.io/portfolio/bootstrap" target="_blank">bootstrap</a></li>
+                    <li><a href="https://rishad-p.github.io/portfolio/WordPress" target="_blank">A WordPress theme</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-resp">
+                <p align="center" style="font-size: 20px;">Software modules</p>
+            </div>
+            <div class="card-resp">
+                <p align="center" style="font-size: 20px;">Websites</p>
+                <ul>
+                    <li><a href="https://bluecreekresort.com/" target="_blank">Blue Creek Village Resort</a><br>
+                        <!-- <text style="font-size: 10px;" onclick="navigate('faris')">faris</text>,  -->
+                        <!-- <text style="font-size: 10px;" onclick="navigate('rishad')">rishad</text> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <p style="
+        font-size: 24px;
+        margin-bottom: 0px;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    ">We are Developers</p>
+        <div class="card-container">
+            <div class="card-resp" id="faris">
+                <div class="card-style">
+                    <div style="display: flex;">
+                        <div class="card-dp" style="background-image: url(assets/faris.jpg);"></div>
+                        <div style="padding-left: 25px;">
+                            <h4>Faris</h4>
+                            <p style="font-size: 15px;">Add a short description</p>
+                        </div>
+                    </div>
+                    <p onclick="window.open('tel:+91 85899 48199', '_blank');"><i class="material-icons"
+                            style="font-size: 18px;">&#xe0b0;</i> PH: +91 85899 48199</p>
+                    <p><i class="material-icons" style="font-size: 18px;">&#xe80b;</i> WEB: </p>
+                    <p>Git: github.com/fariskh</p>
+                    <text>Add a detailed description if required (optional)</text>
+                </div>
+            </div>
+            <div class="card-resp" id="rishad">
+                <div class="card-style">
+                    <div style="display: flex;">
+                        <div class="card-dp" style="background-image: url(assets/rishad.jpg);"></div>
+                        <div style="padding-left: 25px;">
+                            <h4>Rishad</h4>
+                            <p style="font-size: 15px;">Web developer</p>
+                        </div>
+                    </div>
+                    <p onclick="window.open('tel:+91 85928 97844', '_blank');"><i class="material-icons"
+                            style="font-size: 18px;">&#xe0b0;</i> PH: +91 85928 97844</p>
+                    <p onclick="window.open('https://rishad-p.github.io/', '_blank');"><i class="material-icons"
+                            style="font-size: 18px;">&#xe80b;</i> WEB: rishad-p.github.io</p>
+                    <p>Git: github.com/rishad-p</p>
+                    <text>i'm passionate and specialized in animated ui-ux in modern web development world. and i'm a
+                        part time coder</text>
+                </div>
+            </div>
+            <div class="card-resp">
+                <div class="card-style">
+                    <div style="display: flex;">
+                        <div class="card-dp" style="background-image: url(assets/musafar.jpg);"></div>
+                        <div style="padding-left: 25px;">
+                            <h4>Musafar</h4>
+                            <p style="font-size: 15px;">Add a short description</p>
+                        </div>
+                    </div>
+                    <p onclick="window.open('tel:+971 58 130 2527', '_blank');"><i class="material-icons"
+                            style="font-size: 18px;">&#xe0b0;</i> PH: +971 58 130 2527</p>
+                    <p onclick="window.open('http://13.48.83.133:8004/', '_blank');"><i class="material-icons"
+                            style="font-size: 18px;">&#xe80b;</i> WEB: 13.48.83.133:8004</p>
+                    <p>Git: github.com/muzafirsakeen</p>
+                    <text>Add a detailed description if required (optional)</text>
+                </div>
+            </div>
+            <!--         <div class="card-resp">
+            <div class="card-style">
+                <div style="display: flex;">
+                    <div class="card-dp"></div>
+                    <div style="padding-left: 25px;">
+                        <h4>Name</h4>
+                        <p style="font-size: 15px;">Add a short description</p>
+                    </div>
+                </div>
+                <p><i class="material-icons" style="font-size: 18px;">&#xe0b0;</i> PH : 0123456789</p>
+                <p>GitHub</p>
+                <text>Add a detailed description if required (optional)</text>
+            </div>
+        </div> -->
+        </div>
+    </section>
+    <footer>
+        <p id="copy"></p>
+    </footer>
+</body>
+
+</html>
