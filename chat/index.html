@@ -1,1 +1,43 @@
-The chat app will display here.
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBkaaydRiv1IvychMmJ8KRVkRdIee3Qgbg",
+            authDomain: "chat-35a83.firebaseapp.com",
+            projectId: "chat-35a83",
+            storageBucket: "chat-35a83.appspot.com",
+            messagingSenderId: "844400376293",
+            appId: "1:844400376293:web:a2372dbdcbf497f7aed70c",
+            measurementId: "G-2VMB93QW6Y"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        console.log(db);
+
+
+        async function fetch_collection(collection) {
+            const querySnapshot = await db.collection(collection).get();
+            const results = [];
+            querySnapshot.forEach((doc) => {
+                results.push({ id: doc.id, data: doc.data() });
+            });
+            return results;
+        }
+
+
+        console.log(JSON.stringify(await fetch_collection("messages")));
+
+    </script>
+</head>
+
+</html>
