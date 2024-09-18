@@ -39,6 +39,9 @@ body {
 	transform: translateZ(0);
 	transition: all 0.5s ease;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	position: fixed;
+    right: 10px;
+    top: 10px;
 }
 
 #menu-btn>span {
