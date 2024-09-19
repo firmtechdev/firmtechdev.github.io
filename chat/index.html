@@ -22,7 +22,7 @@
         const analytics = getAnalytics(app);
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        console.log(db);
+        // console.log(db);
 
 
         async function fetch_collection(collection) {
@@ -36,6 +36,13 @@
 
 
         console.log(JSON.stringify(await fetch_collection("messages")));
+
+        if (false) {
+            
+        }
+        else {
+            window.location.href = "login.htm"
+        }
 
     </script>
 </head>

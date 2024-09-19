@@ -1,0 +1,41 @@
+.login-body{
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(315deg, transparent, #6200ee40);
+    transition: 500ms;
+}
+.login-card{
+	z-index: 2;
+	position: absolute;
+	transition: 500ms;
+	backface-visibility: hidden;
+	background: linear-gradient(45deg, #80808033, transparent);
+	padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px -2.4px #6200eebf;
+}
+.signup-card{
+	transform: rotateY(180deg);
+	z-index: 1;
+	position: absolute;
+	transition: 500ms;
+	backface-visibility: hidden;
+	background: linear-gradient(315deg, #80808033, transparent);
+	padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+	border-radius: 15px;
+	box-shadow: 0px 0px 10px -2.4px #6200eebf;
+}
+.mdc-button--outlined{
+	border-color: #6200ee !important;
+}
+.login-display-visible, .signup-display-visible{
+	transition: 300ms;
+}
