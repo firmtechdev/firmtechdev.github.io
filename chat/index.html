@@ -39,29 +39,28 @@
 
         console.log(JSON.stringify(await fetch_collection("messages")));
 
+
+
         if (sessionStorage.getItem("user_id") !== null) {
-            users = await fetch_collection("users").then((users) => {
-                const user = users.find(user => user.id === sessionStorage.getItem("user_id"));
-                // user 
-                console.log("Welcome " + JSON.stringify(user));
-            });
-        }
-        else {
+            let users = await fetch_collection("users");
+            const user = users.find(user => user.id === sessionStorage.getItem("user_id"));
+            console.log("Welcome " + JSON.stringify(user));
+            $("body").show();
+        } else {
             window.location.href = "login.htm"
         }
-
-
-
     </script>
 </head>
-<body>
-    
+
+<body style="display: none;">
+
     <button onclick="logout();">logout</button>
     <script type="text/javascript">
-        function logout(){
+        function logout() {
             sessionStorage.removeItem("user_id");
             window.location.href = "login.htm";
         }
     </script>
 </body>
+
 </html>
