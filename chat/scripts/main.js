@@ -1,6 +1,10 @@
 
 const db = firebase.firestore();
 
+if (sessionStorage.getItem("user_id") !== null) {
+	window.location.href = "index.html";
+}
+
 function view_signup(){
 	$(".login-display-visible").css("opacity", "0");
 	$(".signup-display-visible").css("opacity", "0");
@@ -31,13 +35,35 @@ function goto_login(){
 	},500);
 }
 
+function validate_login(){
+	username = $("#username").val().trim();
+	password = $("#password").val().trim();
+	if(username === "" || password === ""){
+		$("#login-btn").attr("disabled", "disabled");
+	}
+	else{
+		$("#login-btn").removeAttr("disabled");
+	}
+}
+
+function validate_signup(){
+	username = $("#create-username").val().trim();
+	password = $("#create-password").val().trim();
+	if(username === "" || password === ""){
+		$("#create-user-btn").attr("disabled", "disabled");
+	}
+	else{
+		$("#create-user-btn").removeAttr("disabled");
+	}
+}
+
 function create_user(){
 	const usersRef = db.collection('users');
-	username = $("#ctrate-username").val().trim();
-	password = CryptoJS.MD5($("#ctrate-password").val().trim()).toString(CryptoJS.enc.Hex);
+	username = $("#create-username").val().trim();
+	password = CryptoJS.MD5($("#create-password").val().trim()).toString(CryptoJS.enc.Hex);
 
 	fetch_collection("users").then((users) => {
-	    const foundUser = users.find(user => user.username === username && user.password === password);
+	    const foundUser = users.find(user => user.username === username);
 	    if (foundUser) {
 	     	console.log("User already exists:", foundUser);
 	    } else {
@@ -63,6 +89,8 @@ function login(){
 	    const foundUser = users.find(user => user.username === username && user.password === password);
 	    if (foundUser) {
 	     	console.log("User exists:", foundUser);
+	     	sessionStorage.setItem("user_id", foundUser.id);
+	     	window.location.href = "index.html";
 	    } else {
 	     	console.log("User not found");
 	    }

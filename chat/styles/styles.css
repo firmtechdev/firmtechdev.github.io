@@ -39,3 +39,37 @@
 .login-display-visible, .signup-display-visible{
 	transition: 300ms;
 }
+/* ----- RESPONSIVENESS START ----- */
+@media only screen and (min-width: 300px) {
+	/* For mobile: */
+	.login-left-div{
+		display: none;
+	}
+	.login-right-div{
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.login-left-div{
+		display: flex;
+		height: 100vh;
+		width: 50vw;
+		font-size: 40vh;
+        justify-content: center;
+        align-items: center;
+        color: #6200ee;
+	}
+	.login-right-div{
+        width: 50vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+	}
+}

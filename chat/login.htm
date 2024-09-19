@@ -18,59 +18,62 @@
     <script src="scripts/firebase-config.js"></script>
 </head>
 <body class="login-body">
-	<div class="login-card">
-		<label class="mdc-text-field mdc-text-field--filled login-display-visible">
-			<span class="mdc-text-field__ripple"></span>
-			<span class="mdc-floating-label">Username</span>
-			<input class="mdc-text-field__input" type="text" id="username">
-			<span class="mdc-line-ripple"></span>
-		</label>
-		<br>
-		<label class="mdc-text-field mdc-text-field--filled login-display-visible">
-			<span class="mdc-text-field__ripple"></span>
-			<span class="mdc-floating-label" id="my-label-id">Password</span>
-			<input class="mdc-text-field__input" type="text" id="password">
-			<span class="mdc-line-ripple"></span>
-		</label>
-		<br>
-		<button class="mdc-button mdc-button--unelevated" onclick="login();">
-			<span class="mdc-button__ripple"></span>
-			<span class="mdc-button__focus-ring"></span>
-			<span class="mdc-button__label">Login</span>
-		</button>
-		<br>
-		<button class="mdc-button mdc-button--outlined" onclick="view_signup();">
-			<span class="mdc-button__ripple"></span>
-			<span class="mdc-button__focus-ring"></span>
-			<span class="mdc-button__label">Sign up</span>
-		</button>
-	</div>
-	<div class="signup-card">
-		<label class="mdc-text-field mdc-text-field--filled signup-display-visible">
-			<span class="mdc-text-field__ripple"></span>
-			<span class="mdc-floating-label">New Username</span>
-			<input class="mdc-text-field__input" type="text" id="ctrate-username">
-			<span class="mdc-line-ripple"></span>
-		</label>
-		<br>
-		<label class="mdc-text-field mdc-text-field--filled signup-display-visible">
-			<span class="mdc-text-field__ripple"></span>
-			<span class="mdc-floating-label" id="my-label-id">Password</span>
-			<input class="mdc-text-field__input" type="text" id="ctrate-password">
-			<span class="mdc-line-ripple"></span>
-		</label>
-		<br>
-		<button class="mdc-button mdc-button--unelevated" onclick="create_user();">
-			<span class="mdc-button__ripple"></span>
-			<span class="mdc-button__focus-ring"></span>
-			<span class="mdc-button__label">Create account</span>
-		</button>
-		<br>
-		<button class="mdc-button mdc-button--outlined" onclick="goto_login();">
-			<span class="mdc-button__ripple"></span>
-			<span class="mdc-button__focus-ring"></span>
-			<span class="mdc-button__label">Go to Login</span>
-		</button>
+	<div class="login-left-div material-icons">&#xe0bf;</div>
+	<div class="login-right-div">
+		<div class="login-card">
+			<label class="mdc-text-field mdc-text-field--filled login-display-visible">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label">Username</span>
+				<input class="mdc-text-field__input" type="text" id="username" onkeyup="validate_login();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<br>
+			<label class="mdc-text-field mdc-text-field--filled login-display-visible" onkeyup="validate_login();">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label" id="my-label-id">Password</span>
+				<input class="mdc-text-field__input" type="text" id="password">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<br>
+			<button class="mdc-button mdc-button--unelevated" onclick="login();" id="login-btn" disabled>
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Login</span>
+			</button>
+			<br>
+			<button class="mdc-button mdc-button--outlined" onclick="view_signup();">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Sign up</span>
+			</button>
+		</div>
+		<div class="signup-card">
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label">New Username</span>
+				<input class="mdc-text-field__input" type="text" id="ctrate-username" onkeyup="validate_signup();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<br>
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label" id="my-label-id">Password</span>
+				<input class="mdc-text-field__input" type="text" id="create-password" onkeyup="validate_signup();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<br>
+			<button class="mdc-button mdc-button--unelevated" onclick="create_user();" id="create-user-btn" disabled>
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Create account</span>
+			</button>
+			<br>
+			<button class="mdc-button mdc-button--outlined" onclick="goto_login();">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Go to Login</span>
+			</button>
+		</div>
 	</div>
 	<script src="scripts/main.js"></script>
 </body>
