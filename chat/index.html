@@ -44,16 +44,21 @@
         if (sessionStorage.getItem("user_id") !== null) {
             let users = await fetch_collection("users");
             const user = users.find(user => user.id === sessionStorage.getItem("user_id"));
-            console.log("Welcome " + JSON.stringify(user));
+            console.log("Welcome " + user.data.username);
+            $("#text").html("Hello " + user.data.username);
             $("body").show();
         } else {
-            window.location.href = "login.htm"
+            window.location.href = "login.htm";
         }
     </script>
 </head>
 
 <body style="display: none;">
-
+    <p id="text" style="
+        font-size: xxx-large;
+        font-family: Roboto;
+        font-weight: 100;
+    "></p>
     <button onclick="logout();">logout</button>
     <script type="text/javascript">
         function logout() {
