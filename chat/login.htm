@@ -18,23 +18,38 @@
     <script src="scripts/firebase-config.js"></script>
 	<script src="scripts/main.js"></script>
 </head>
-<body class="login-body">
+<body class="login-body" onload="load();">
+	<div id="progress-bar" role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+	    <div class="mdc-linear-progress__buffer"></div>
+	    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+	        <span class="mdc-linear-progress__bar-inner"></span>
+	    </div>
+	    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+	        <span class="mdc-linear-progress__bar-inner"></span>
+	    </div>
+	</div>
 	<div class="login-left-div material-icons">&#xe0bf;</div>
 	<div class="login-right-div">
 		<div class="login-card">
-			<label class="mdc-text-field mdc-text-field--filled login-display-visible">
+			<label class="mdc-text-field mdc-text-field--filled login-display-visible" id="username-label">
 				<span class="mdc-text-field__ripple"></span>
 				<span class="mdc-floating-label">Username</span>
 				<input class="mdc-text-field__input" type="text" id="username" onkeyup="validate_login();">
 				<span class="mdc-line-ripple"></span>
 			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="username-helper" aria-hidden="true">&nbsp;</div>
+			</div>
 			<br>
-			<label class="mdc-text-field mdc-text-field--filled login-display-visible" onkeyup="validate_login();">
+			<label class="mdc-text-field mdc-text-field--filled login-display-visible" id="password-label">
 				<span class="mdc-text-field__ripple"></span>
 				<span class="mdc-floating-label" id="my-label-id">Password</span>
-				<input class="mdc-text-field__input" type="text" id="password">
+				<input class="mdc-text-field__input" type="text" id="password" onkeyup="validate_login();">
 				<span class="mdc-line-ripple"></span>
 			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="password-helper" aria-hidden="true">&nbsp;</div>
+			</div>
 			<br>
 			<button class="mdc-button mdc-button--unelevated" onclick="login();" id="login-btn" disabled>
 				<span class="mdc-button__ripple"></span>
@@ -49,19 +64,35 @@
 			</button>
 		</div>
 		<div class="signup-card">
-			<label class="mdc-text-field mdc-text-field--filled signup-display-visible">
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible" id="create-username-label">
 				<span class="mdc-text-field__ripple"></span>
 				<span class="mdc-floating-label">New Username</span>
 				<input class="mdc-text-field__input" type="text" id="create-username" onkeyup="validate_signup();">
 				<span class="mdc-line-ripple"></span>
 			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="create-username-helper" aria-hidden="true">&nbsp;</div>
+			</div>
 			<br>
-			<label class="mdc-text-field mdc-text-field--filled signup-display-visible">
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible" id="create-password-label">
 				<span class="mdc-text-field__ripple"></span>
-				<span class="mdc-floating-label" id="my-label-id">Password</span>
+				<span class="mdc-floating-label" id="my-label-id">Create Password</span>
 				<input class="mdc-text-field__input" type="text" id="create-password" onkeyup="validate_signup();">
 				<span class="mdc-line-ripple"></span>
 			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="create-password-helper" aria-hidden="true">&nbsp;</div>
+			</div>
+			<br>
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible" id="confirm-password-label">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label" id="my-label-id">Confirm Password</span>
+				<input class="mdc-text-field__input" type="text" id="confirm-password" onkeyup="validate_signup();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="confirm-password-helper" aria-hidden="true">&nbsp;</div>
+			</div>
 			<br>
 			<button class="mdc-button mdc-button--unelevated" onclick="create_user();" id="create-user-btn" disabled>
 				<span class="mdc-button__ripple"></span>
