@@ -1,16 +1,14 @@
+
 const db = firebase.firestore();
-console.log(db);
+
 
 
 function fetch_collection(collection) {
-    db.collection(collection).get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-            return "hai";
-        });
+  return db.collection(collection).get().then((querySnapshot) => {
+    const results = []; 
+    querySnapshot.forEach((doc) => {
+     	results.push({ id: doc.id, ...doc.data() });  
     });
-    return "hello";
+    return results; 
+  });
 }
-
-
-console.log(fetch_collection("messages"));

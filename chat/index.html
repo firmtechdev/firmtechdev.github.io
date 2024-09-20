@@ -22,8 +22,10 @@
         const analytics = getAnalytics(app);
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
-        console.log(db);
 
+        if (sessionStorage.getItem("user_id") == null) {
+            window.location.href = "login.htm";
+        }
 
         async function fetch_collection(collection) {
             const querySnapshot = await db.collection(collection).get();
@@ -37,7 +39,33 @@
 
         console.log(JSON.stringify(await fetch_collection("messages")));
 
+
+
+        if (sessionStorage.getItem("user_id") !== null) {
+            let users = await fetch_collection("users");
+            const user = users.find(user => user.id === sessionStorage.getItem("user_id"));
+            console.log("Welcome " + user.data.username);
+            $("#text").html("Hello " + user.data.username);
+            $("body").show();
+        } else {
+            window.location.href = "login.htm";
+        }
     </script>
 </head>
+
+<body style="display: none;">
+    <p id="text" style="
+        font-size: xxx-large;
+        font-family: Roboto;
+        font-weight: 100;
+    "></p>
+    <button onclick="logout();">logout</button>
+    <script type="text/javascript">
+        function logout() {
+            sessionStorage.removeItem("user_id");
+            window.location.href = "login.htm";
+        }
+    </script>
+</body>
 
 </html>

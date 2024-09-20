@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login firmchat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" href="../assets/logo.png" sizes="any" type="any">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/button@14.0.0/dist/mdc.button.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@material/ripple@14.0.0/dist/mdc.ripple.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@material/button@14.0.0/dist/mdc.button.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+    <script src="scripts/firebase-config.js"></script>
+	<script src="scripts/main.js"></script>
+</head>
+<body class="login-body" onload="load();">
+	<div id="progress-bar" role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+	    <div class="mdc-linear-progress__buffer"></div>
+	    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+	        <span class="mdc-linear-progress__bar-inner"></span>
+	    </div>
+	    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+	        <span class="mdc-linear-progress__bar-inner"></span>
+	    </div>
+	</div>
+	<div class="login-left-div material-icons">&#xe0bf;</div>
+	<div class="login-right-div">
+		<div class="login-card">
+			<label class="mdc-text-field mdc-text-field--filled login-display-visible" id="username-label">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label">Username</span>
+				<input class="mdc-text-field__input" type="text" id="username" onkeyup="validate_login();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="username-helper" aria-hidden="true">&nbsp;</div>
+			</div>
+			<br>
+			<label class="mdc-text-field mdc-text-field--filled login-display-visible" id="password-label">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label" id="my-label-id">Password</span>
+				<input class="mdc-text-field__input" type="text" id="password" onkeyup="validate_login();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="password-helper" aria-hidden="true">&nbsp;</div>
+			</div>
+			<br>
+			<button class="mdc-button mdc-button--unelevated" onclick="login();" id="login-btn" disabled>
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Login</span>
+			</button>
+			<br>
+			<button class="mdc-button mdc-button--outlined" onclick="view_signup();">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Sign up</span>
+			</button>
+		</div>
+		<div class="signup-card">
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible" id="create-username-label">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label">New Username</span>
+				<input class="mdc-text-field__input" type="text" id="create-username" onkeyup="validate_signup();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="create-username-helper" aria-hidden="true">&nbsp;</div>
+			</div>
+			<br>
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible" id="create-password-label">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label" id="my-label-id">Create Password</span>
+				<input class="mdc-text-field__input" type="text" id="create-password" onkeyup="validate_signup();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="create-password-helper" aria-hidden="true">&nbsp;</div>
+			</div>
+			<br>
+			<label class="mdc-text-field mdc-text-field--filled signup-display-visible" id="confirm-password-label">
+				<span class="mdc-text-field__ripple"></span>
+				<span class="mdc-floating-label" id="my-label-id">Confirm Password</span>
+				<input class="mdc-text-field__input" type="text" id="confirm-password" onkeyup="validate_signup();">
+				<span class="mdc-line-ripple"></span>
+			</label>
+			<div class="mdc-text-field-helper-line">
+			  <div class="mdc-text-field-helper-text" id="confirm-password-helper" aria-hidden="true">&nbsp;</div>
+			</div>
+			<br>
+			<button class="mdc-button mdc-button--unelevated" onclick="create_user();" id="create-user-btn" disabled>
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Create account</span>
+			</button>
+			<br>
+			<button class="mdc-button mdc-button--outlined" onclick="goto_login();">
+				<span class="mdc-button__ripple"></span>
+				<span class="mdc-button__focus-ring"></span>
+				<span class="mdc-button__label">Go to Login</span>
+			</button>
+		</div>
+	</div>
+	<script src="scripts/login.js"></script>
+</body>
+</html>
