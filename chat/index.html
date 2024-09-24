@@ -5,29 +5,11 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
     <script type="module" src="scripts/firebase.js"></script>
-    <script type="module">
-        if (sessionStorage.getItem("user_id") == null) {
-            window.location.href = "login.htm";
-        }
-
-        if (sessionStorage.getItem("user_id") !== null) {
-            const user = await fetch_collection_by_filter("users", { 'id': sessionStorage.getItem("user_id") });
-            $("#text").html("Hello " + user.username);
-            $("body").show();
-        } else {
-            window.location.href = "login.htm";
-        }
-    </script>
+    <script type="module" src="scripts/index.js"></script>
 </head>
 
 <body style="display: none;">
     <button onclick="logout();">logout</button>
-    <script type="text/javascript">
-        function logout() {
-            sessionStorage.removeItem("user_id");
-            window.location.href = "login.htm";
-        }
-    </script>
 </body>
 
 </html>
