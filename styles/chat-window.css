@@ -1,0 +1,70 @@
+body{
+	margin: 0px;
+	transition: 300ms;
+}
+
+.mdc-top-app-bar{
+	box-shadow: 0px 0px 10px 0.5px #00000080;
+}
+
+.mdc-icon-button{
+	overflow: hidden;
+	border-radius: 100%;
+}
+
+.textarea--fixed-adjust{
+	height: 120px;
+}
+
+#send-msg-label{
+	transition: 300ms;
+	position: fixed;
+	bottom: 0px;
+	border-radius: 100px;
+	height: 80px;
+	background: white;
+	border-radius: unset;
+	box-shadow: 0px 0px 0px 10px white;
+}
+
+#send-msg-btn{
+	transition: 300ms;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: white;
+}
+
+#send-msg-btn > span{
+	color: #6200ee;
+}
+
+.mdc-fab__icon{
+	transition: 300ms;
+}
+
+.in-msg{
+    width: 75vw;
+    word-break: break-all;
+    border-radius: 0px 20px 20px 20px;
+    box-shadow: 0px 0px 10px -2.4px #00000040;
+    background: #6400f0a6;
+    font-family: Roboto;
+    color: white;
+    padding: 10px;
+    margin: 6px;
+}
+
+.out-msg{
+	width: 75vw;
+    word-break: break-all;
+    border-radius: 20px 20px 0px 20px;
+    box-shadow: 0px 0px 10px -2.4px #00000040;
+    background: lightgray;
+    font-family: Roboto;
+    margin-left: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    padding: 10px;
+}
