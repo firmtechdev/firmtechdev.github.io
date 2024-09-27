@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title id="title"></title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="icon" href="../assets/logo.png" sizes="any" type="any">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -10,8 +11,12 @@
 	<link rel="stylesheet" href="../styles/chat-window.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+	<script type="module" src="../scripts/chat-firebase.js"></script>
+	<script type="module" src="../scripts/chat-window.js"></script>
 </head>
-<body onload="load()">
+<body onload="load();">
 	<div id="progress-bar" role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
 	    <div class="mdc-linear-progress__buffer"></div>
 	    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
@@ -24,12 +29,12 @@
 	<header class="mdc-top-app-bar">
 		<div class="mdc-top-app-bar__row">
 			<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-				<button class="mdc-icon-button">
+				<button class="mdc-icon-button" onclick="back();">
 					<div class="mdc-icon-button__ripple"></div>
 					<span class="mdc-icon-button__focus-ring"></span>
 					<i class="material-icons">&#xe2ea</i>
 				</button>
-				<span class="mdc-top-app-bar__title">Sender user Name</span>
+				<span class="mdc-top-app-bar__title" id="sender_name"></span>
 				</section>
 			<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
 				<!-- <button class="mdc-icon-button" disabled="disabled">
@@ -43,6 +48,9 @@
 	<div class="mdc-top-app-bar--fixed-adjust" style="padding-bottom: 16px;"></div>
 	<div id="messages"></div>
 	<button onclick="test_msg();">test_msg</button>
+	<p id="user"></p>
+	<br>
+	<button onclick="logout();">logout</button>
 	<div class="textarea--fixed-adjust"></div>
 	<label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label" id="send-msg-label">
 	  <span class="mdc-notched-outline">
@@ -61,71 +69,5 @@
 		<span class="mdc-fab__label">Send</span>
 		<span class="material-icons mdc-fab__icon">&#xe5c8;</span>
 	</button>
-<script>
-function load() {
-	$("#progress-bar").css("left", "auto");
-	$("#progress-bar").css("right", "0px");
-	$("#progress-bar").css("width", "0%");
-}
-
-function validate_msg(){
-	msg = document.getElementById("send-msg-text");
-	rows_count = msg.value.split("\n").length;
-	if (rows_count > 1) {
-		$("#send-msg-text").attr("rows", "3");
-		$("#send-msg-label").css("height", "104px");
-	}
-	else {
-		$("#send-msg-text").attr("rows", "2");
-		$("#send-msg-label").css("height", "80px");
-	}
-	if ($("#send-msg-text").val() === "") {
-		$("#send-msg-btn").attr("class", "mdc-fab mdc-fab--extended mdc-ripple-upgraded");
-		$("#send-msg-btn").attr("onclick", "");
-		$("#send-msg-btn").css("background", "white");
-		$("#send-msg-btn").css("transform", "rotate(0deg)");
-		$("#send-msg-btn > span").css("color", "#6200ee");
-		$(".mdc-fab__label").html("Send");
-	}
-	else {
-		$("#send-msg-btn").attr("class", "mdc-fab mdc-ripple-upgraded");
-		$("#send-msg-btn").attr("onclick", "send_msg();");
-		$("#send-msg-btn").css("background", "#6200ee");
-		$("#send-msg-btn").css("transform", "rotate(-45deg)");
-		$("#send-msg-btn > span").css("color", "white");
-		$(".mdc-fab__label").html("");
-	}
-}
-
-function send_msg(){
-	height = document.getElementById("send-msg-text").value.split("\n").length;
-	width = document.getElementById("send-msg-text").value.split("\s").length;
-	$("#messages").append("<div class='out-msg'>" + $('#send-msg-text').val().replace(/\n/g, '<br>').replace(/\s/g, '&nbsp;') + "</div>");
-	console.log(width, height);
-    $('html,body').animate({scrollTop: $('.textarea--fixed-adjust').offset().top},'slow');
-    $('#send-msg-text').val(null);
-    validate_msg();
-}
-
-function test_msg(){
-	$("#messages").append("<div class='in-msg'>test&nbsp;message<br>&#128512;<br>message&nbsp;test</div>");
-    $('html,body').animate({scrollTop: $('.textarea--fixed-adjust').offset().top},'slow');
-}
-
-var fabs = document.querySelectorAll('.mdc-fab');
-fabs.forEach(button => {
-	mdc.ripple.MDCRipple.attachTo(button);
-});
-
-var mdctextFields = document.querySelectorAll('.mdc-text-field');
-mdctextFields.forEach(field => {
-	mdc.textField.MDCTextField.attachTo(field);
-});
-
-var iconButtons = document.querySelectorAll('.mdc-icon-button');
-iconButtons.forEach(button => {
-	mdc.ripple.MDCRipple.attachTo(button);
-});
-</script>
 </body>
 </html>
