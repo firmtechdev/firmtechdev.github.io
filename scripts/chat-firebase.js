@@ -23,6 +23,21 @@ window.fetch_collection = async function (collection) {
     return results;
 }
 
+window.fetch_collections_by_multi_filter = async function (collection, key_name, key_val, key_name2, key_val2) {
+    const querySnapshot = await db
+        .collection(collection)
+        .where(key_name, '==', key_val)
+        .where(key_name2, '==', key_val2)
+        .get();
+    
+    const results = [];
+    querySnapshot.forEach((doc) => {
+        results.push({ id: doc.id, data: doc.data() });
+    });
+    
+    return results;
+}
+
 window.add_collection = async function (collection, data) {
     await db.collection(collection).add(data);
     return true;

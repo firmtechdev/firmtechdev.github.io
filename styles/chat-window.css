@@ -1,0 +1,75 @@
+body{
+	/*display: none;*/
+	margin: 0px;
+	transition: 300ms;
+	user-select: none;
+	margin-left: 100vw;
+}
+
+.mdc-top-app-bar{
+	box-shadow: 0px 0px 10px 0.5px #00000080;
+}
+
+.mdc-icon-button{
+	overflow: hidden;
+	border-radius: 100%;
+}
+
+.textarea--fixed-adjust{
+	height: 120px;
+}
+
+#send-msg-label{
+	transition: 300ms;
+	position: fixed;
+	bottom: 0px;
+	border-radius: 100px;
+	height: 80px;
+	background: white;
+	border-radius: unset;
+	box-shadow: 0px 0px 0px 10px white;
+}
+
+#send-msg-btn{
+	transition: 300ms;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: white;
+}
+
+#send-msg-btn > span{
+	color: #6200ee;
+}
+
+.mdc-fab__icon{
+	transition: 300ms;
+}
+
+.msg{
+	width: 75vw;
+    word-break: break-all;
+	transition: 300ms;
+    box-shadow: 0px 0px 10px -2.4px #00000040;
+    font-family: Roboto;
+    padding: 10px;
+    transform: scale(0);
+}
+
+.in-msg{
+    border-radius: 0px 20px 20px 20px;
+    background: #6400f0a6;
+    color: white;
+    margin: 6px;
+    transform-origin: top left;
+}
+
+.out-msg{
+    border-radius: 20px 20px 0px 20px;
+    background: lightgray;
+    margin-left: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    transform-origin: bottom right;
+}

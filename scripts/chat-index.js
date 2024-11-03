@@ -4,7 +4,7 @@ if (sessionStorage.getItem("user_id") == null) {
 
 if (sessionStorage.getItem("user_id") !== null) {
     const user = await fetch_collection_by_filter("users", { 'id': sessionStorage.getItem("user_id") });
-    $("#text").html("Hello " + user.username);
+    $("#text").html("Hi " + user.username);
     $("body").show();
 } else {
     window.location.href = "login.htm";
