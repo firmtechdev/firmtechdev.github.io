@@ -1,17 +1,223 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<title>Firmchat</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" href="../assets/logo.png" sizes="any" type="any">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+	<link rel="stylesheet" href="../styles/chat-common.css">
+	<link rel="stylesheet" href="../styles/chat-index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
     <script type="module" src="../scripts/chat-firebase.js"></script>
     <script type="module" src="../scripts/chat-index.js"></script>
 </head>
-
-<body style="display: none;">
-	<text id="text"></text>
-    <button onclick="logout();">logout</button>
-    <!-- <object type="text/html" data="login.htm"></object> -->
+<body onload="load();">
+	<div id="progress-bar" role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+	    <div class="mdc-linear-progress__buffer"></div>
+	    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+	        <span class="mdc-linear-progress__bar-inner"></span>
+	    </div>
+	    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+	        <span class="mdc-linear-progress__bar-inner"></span>
+	    </div>
+	</div>
+	<div id="firmchat">Firmchat</div>
+	<div id="layout">
+		<div class="page" id="recents">
+			<ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="recents_list">
+				<li class="mdc-list-divider" role="separator"></li>
+				<li class="mdc-deprecated-list-item" onclick="view_chat('vW4FLo7CssZiypk9ehsp')">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">faris</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item" onclick="view_chat('ozOjcnfHklpy1ajHkdik')">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">rishad</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+			</ul>
+			<div class="space-adjust"></div>
+		</div>
+		<div class="page" id="others">
+			<ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="others_list">
+				<li class="mdc-list-divider" role="separator"></li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+				<li class="mdc-deprecated-list-item">
+					<span class="mdc-deprecated-list-item__ripple"></span>
+					<span class="mdc-deprecated-list-item__graphic material-icons" aria-hidden="true">account_circle</span>
+					<span class="mdc-deprecated-list-item__text">
+					<span class="mdc-deprecated-list-item__primary-text">Third item</span>
+					<span class="mdc-deprecated-list-item__secondary-text">Secondary text</span>
+					</span>
+					<li class="mdc-list-divider" role="separator"></li>
+				</li>
+			</ul>
+			<div class="space-adjust"></div>
+		</div>
+		<div class="page" id="profile">
+			<text class="material-icons account_circle">account_circle</text>
+			<br>
+			<text id="text"></text>
+			<br>
+			<br>
+			<br>
+		    <button class="mdc-button mdc-button--outlined" onclick="logout();">logout <span class="mdc-button__ripple"></span></button>
+		</div>
+	</div>
+	<div class="mdc-tab-bar">
+    	<div class="mdc-tab-scroller">
+     		<div class="mdc-tab-scroller__scroll-area">
+        		<div class="mdc-tab-scroller__scroll-content">
+					<button class="mdc-tab mdc-tab--stacked mdc-tab--active" onclick="move('recents')">
+						<span class="mdc-tab__content">
+							<span class="mdc-tab__icon material-icons" aria-hidden="true">history</span>
+							<span class="mdc-tab__text-label">recents</span>
+						</span>
+						<span class="mdc-tab-indicator mdc-tab-indicator--active">
+							<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+						</span>
+						<span class="mdc-tab__ripple"></span>
+						<div class="mdc-tab__focus-ring"></div>
+					</button>
+					<button class="mdc-tab mdc-tab--stacked" onclick="move('others')">
+						<span class="mdc-tab__content">
+							<span class="mdc-tab__icon material-icons" aria-hidden="true">supervisor_account</span>
+							<span class="mdc-tab__text-label">others</span>
+						</span>
+						<span class="mdc-tab-indicator">
+							<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+						</span>
+						<span class="mdc-tab__ripple"></span>
+						<div class="mdc-tab__focus-ring"></div>
+					</button>
+					<button class="mdc-tab mdc-tab--stacked" onclick="move('search')">
+						<span class="mdc-tab__content">
+							<span class="mdc-tab__icon material-icons" aria-hidden="true">search</span>
+							<span class="mdc-tab__text-label">search</span>
+						</span>
+						<span class="mdc-tab-indicator">
+							<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+						</span>
+						<span class="mdc-tab__ripple"></span>
+						<div class="mdc-tab__focus-ring"></div>
+					</button>
+					<button class="mdc-tab mdc-tab--stacked" onclick="move('profile')">
+						<span class="mdc-tab__content">
+							<span class="mdc-tab__icon material-icons" aria-hidden="true">person</span>
+							<span class="mdc-tab__text-label">profile</span>
+						</span>
+						<span class="mdc-tab-indicator">
+							<span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+						</span>
+						<span class="mdc-tab__ripple"></span>
+						<div class="mdc-tab__focus-ring"></div>
+					</button>
+        		</div>
+     		</div>
+    	</div>
+	</div>
 </body>
-
 </html>

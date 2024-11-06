@@ -1,0 +1,80 @@
+body{
+	/*display: none;*/
+	margin: 0px;
+	transition: 300ms;
+	user-select: none;
+	margin-left: 100vw;
+	overflow: hidden;
+}
+
+#firmchat{
+	width: 100vw;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	padding-left: 16px;
+	height: 5vh;
+    font-size: 25px;
+    font-weight: 200;
+    font-family: Roboto;
+    color: #00b2e7;
+	box-shadow: 0px 0px 10px 0.5px #00000040;
+}
+
+.mdc-tab-scroller__scroll-content{
+	display: flex;
+	box-shadow: 0px 0px 10px 0.5px #00000080;
+	position: fixed;
+	bottom: 0px;
+	width: 100vw;
+	background: white;
+}
+
+.mdc-tab{
+	width: 25%;
+}
+
+#layout{
+	position: absolute;
+	margin-top: 5vh;
+	display: flex;
+	flex-direction: row;
+}
+
+.page{
+	width: 100vw;
+	flex: none;
+	height: 90vh;
+    overflow: scroll;
+}
+
+#recents{
+	
+}
+
+#others{
+	
+}
+
+#profile{
+	text-align: center;
+}
+
+.space-adjust{
+	height: 200px;
+}
+
+.account_circle{
+    font-size: 100px;
+    color: lightgrey;
+}
+
+#text{
+    font-size: 50px;
+    font-weight: 100;
+    font-family: Roboto;
+}
+
+.mdc-button--outlined{
+	border-color: #6200ee !important;
+}

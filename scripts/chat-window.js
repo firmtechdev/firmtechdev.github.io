@@ -2,7 +2,8 @@ if (sessionStorage.getItem("user_id") == null) {
     window.location.href = "login.htm";
 }
 
-var receiver_id = 'vW4FLo7CssZiypk9ehsp'; //faris
+var receiver_id = sessionStorage.getItem("receiver_id");
+// var receiver_id = 'vW4FLo7CssZiypk9ehsp'; //faris
 // var receiver_id = 'ozOjcnfHklpy1ajHkdik'; //rishad
 
 window.load = ()=> {
@@ -55,7 +56,7 @@ window.back = ()=> {
 	progress_start();
 	$("body").css("margin-left", "110vw");
 	setTimeout(()=>{
-		window.location.href = "chat-window.html";
+		window.location.href = "index.html";
 	},350);
 }
 
