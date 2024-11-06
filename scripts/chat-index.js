@@ -1,5 +1,3 @@
-sessionStorage.setItem("user_id", "ozOjcnfHklpy1ajHkdik");
-
 if (sessionStorage.getItem("user_id") == null) {
     window.location.href = "login.htm";
 }
