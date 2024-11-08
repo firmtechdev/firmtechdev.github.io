@@ -23,6 +23,61 @@ window.fetch_collection = async function (collection) {
     return results;
 }
 
+window.get_last_message = async function (user_id, type) {
+    const querySnapshot = await db
+        .collection('messages')
+        .where(type, '==', user_id)
+        .orderBy('timestamp', 'desc')
+        .limit(1)
+        .get();
+    if (querySnapshot.empty) {
+        return null;
+    }
+    else{
+        var datadoc = querySnapshot.docs[0];
+        return datadoc.data();
+    }
+}
+
+window.get_others_chatlist = async function (uid, type) {
+    const querySnapshot = await db
+        .collection('messages')
+        .where(type, '==', uid)
+        .limit(1)
+        .get();
+    if (querySnapshot.empty) {
+        return null;
+    }
+    else{
+        return querySnapshot.docs[0].data();
+    }
+}
+
+window.search_users = async (key) => {
+    const querySnapshot = await db
+        .collection('users')
+        .where('username', '>=', key)
+        .where('username', '<', key + '\uf8ff')  // This is a common trick for prefix matching
+        .get();
+    const results = [];
+    querySnapshot.forEach((doc) => {
+        results.push({ id: doc.id, data: doc.data() });
+    });
+    return results;
+}
+
+window.fetch_collections_by_filter = async function (collection, key_name, key_val) {
+    const querySnapshot = await db
+        .collection(collection)
+        .where(key_name, '==', key_val)
+        .get();
+    const results = [];
+    querySnapshot.forEach((doc) => {
+        results.push({ id: doc.id, data: doc.data() });
+    });
+    return results;
+}
+
 window.fetch_collections_by_multi_filter = async function (collection, key_name, key_val, key_name2, key_val2) {
     const querySnapshot = await db
         .collection(collection)
