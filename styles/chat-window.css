@@ -22,14 +22,23 @@ body {
 #send-msg-label {
 	transition: 300ms;
 	bottom: 0px;
-	border-radius: 100px;
-	height: 80px;
+	border-radius: 100px !important;
 	background: white;
 	border-radius: unset;
-	box-shadow: 0px 0px 0px 10px white;
 	width: -webkit-fill-available;
 	padding: 0px;
-	margin-bottom: 1vw;
+	margin: 1vw;
+}
+
+.mdc-notched-outline__leading{
+	width: 30px !important;
+	border-top-left-radius:100px !important;
+	border-bottom-left-radius: 100px !important;
+}
+
+.mdc-notched-outline__trailing{
+	border-top-right-radius: 100px !important;
+	border-bottom-right-radius: 100px !important;
 }
 
 .textarea-outerline {
@@ -40,9 +49,10 @@ body {
 
 #send-msg-btn {
 	transition: 300ms;
-	bottom: 5px;
-	right: 5px;
 	background: white;
+	flex: none;
+	margin: 1vw;
+	box-shadow: #00000061 0px 0px 0px 1px;
 }
 
 #send-msg-btn>span {
@@ -87,5 +97,12 @@ body {
 }
 
 .send-message-banner {
-
+	display: flex;
+	align-items: flex-end;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    box-shadow: 0px 0px 5px 0.5px #00000080;
+    background: white;
+    border-radius: 30px 30px 0px 0px;
 }

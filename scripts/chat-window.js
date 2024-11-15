@@ -35,12 +35,16 @@ window.set_messages = async () => {
 		messages.forEach((message) => {
 			if (message.data.sender_id === sessionStorage.getItem("user_id")) {
 				var css_class = 'out-msg';
+				var margin = "margin-left:auto;";
 			} else {
 				var css_class = 'in-msg';
+				var margin = "margin-right:auto;";
 			};
 			$("#messages").append(
-				"<div class='msg " + css_class + " mdc-ripple-surface' id='" + message.id + "'>" +
-				message.data.message +
+				"<div style='width :75vw; overflow-wrap: anywhere; "+margin+"'>"+
+					"<div class='msg " + css_class + " mdc-ripple-surface' id='" + message.id + "'>" +
+					message.data.message +
+					"</div>"+
 				"</div>"
 			);
 		});
@@ -68,24 +72,22 @@ window.validate_msg = () => {
 		$("#send-msg-label").css("height", "104px");
 	}
 	else {
-		$("#send-msg-text").attr("rows", "2");
-		$("#send-msg-label").css("height", "80px");
+		$("#send-msg-text").attr("rows", "1");
+		$("#send-msg-label").css("height", "56px");
 	}
 	if ($("#send-msg-text").val() === "") {
-		$("#send-msg-btn").attr("class", "mdc-fab mdc-fab--extended mdc-ripple-upgraded");
 		$("#send-msg-btn").attr("onclick", "");
 		$("#send-msg-btn").css("background", "white");
 		$("#send-msg-btn").css("transform", "rotate(0deg)");
 		$("#send-msg-btn > span").css("color", "#6200ee");
-		$(".mdc-fab__label").html("Send");
+		$("#send-msg-btn").css("box-shadow", "#00000061 0px 0px 0px 1px");
 	}
 	else {
-		$("#send-msg-btn").attr("class", "mdc-fab mdc-ripple-upgraded");
 		$("#send-msg-btn").attr("onclick", "send_msg();");
 		$("#send-msg-btn").css("background", "#6200ee");
 		$("#send-msg-btn").css("transform", "rotate(-45deg)");
 		$("#send-msg-btn > span").css("color", "white");
-		$(".mdc-fab__label").html("");
+		$("#send-msg-btn").css("box-shadow", "0px 0px 10px 0.5px #00000080");
 	}
 }
 
@@ -93,8 +95,10 @@ window.send_msg = () => {
 	var message = $('#send-msg-text').val().replace(/\n/g, '<br>').replace(/\s/g, '&nbsp;');
 	var timestamp = new Date().getTime();
 	$("#messages").append(
-		"<div class='msg out-msg mdc-ripple-surface' id='" + timestamp + "'>" +
-		message +
+		"<div style='width :75vw; overflow-wrap: anywhere; margin-left:auto;'>"+
+			"<div class='msg out-msg mdc-ripple-surface' id='" + timestamp + "'>" +
+			message +
+			"</div>"+
 		"</div>"
 	);
 	$('html,body').animate({ scrollTop: $('.textarea--fixed-adjust').offset().top }, 'slow');
@@ -164,9 +168,27 @@ window.pogress_end = () => {
 }
 
 $(document).on('keypress', function (e) {
-	if (e.which == 13) {
-		send_msg();
-		return false;
+	if (e.which && e.shiftKey) {
+
+	} else if (e.which == 13) {
+		var msg = document.getElementById("send-msg-text");
+		var rows_count = msg.value.split("\n").length;
+		if (rows_count > 1) {
+			$("#send-msg-text").attr("rows", "3");
+			$("#send-msg-label").css("height", "104px");
+		} else {
+			$("#send-msg-text").attr("rows", "2");
+			$("#send-msg-label").css("height", "80px");
+		}
+		if (document.getElementById("send-msg-text").value.trim() === "") {
+			$("#send-msg-btn").attr("onclick", "");
+			$("#send-msg-btn").css("background", "white");
+			$("#send-msg-btn").css("transform", "rotate(0deg)");
+			$("#send-msg-btn > span").css("color", "#6200ee");
+		} else {
+			send_msg();
+			return false;
+		}
 	}
 });
 
