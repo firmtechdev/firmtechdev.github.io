@@ -209,6 +209,29 @@ fieldset:disabled a.btn {
 	box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
+.ul-border{
+    box-shadow: 0px 0px 0px 2px #00b2e7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#projects>p, #contact>p{
+	font-size: 24px;
+	margin-bottom: 0px;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	text-align: center;
+	color: #005686;
+}
+
+.ul-border>p{
+	color: #00b2e7;
+}
+
+ul{
+	list-style-type: disc;
+}
+
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -217,7 +240,10 @@ fieldset:disabled a.btn {
 .card-style {
 	padding: 20px;
 	border-radius: 5px;
-	box-shadow: 0px 0px 10px 0px #80808080;
+	box-shadow: 0px 0px 10px 0px #00000080;
+	backdrop-filter: blur(15px);
+	background-color: #ffffff40;
+	height: 324px;
 }
 
 .card-dp {
@@ -229,13 +255,18 @@ fieldset:disabled a.btn {
 }
 
 footer {
-	height: 10vh;
 	background: black;
 	color: gray;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	flex-direction: column;
+}
+
+.sos-icon{
+	width: 50px;
+	height: 50px;
+	background-size: contain;
 }
 
 #copy {
