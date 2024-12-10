@@ -27,7 +27,7 @@
         </div>
     </div>
     <div id="menu-page" onmousewheel="event.preventDefault()" ontouchmove="event.preventDefault()">
-        <text onclick="navigate_menu('about')">About us</text>
+        <text onclick="navigate_menu('home')">About us</text>
         <text onclick="navigate_menu('services')">What we do</text>
         <text onclick="navigate_menu('projects')">What we done</text>
         <text onclick="navigate_menu('contact')">Contact Us</text>
@@ -48,7 +48,7 @@
         <p>
             Blends innovation and artistry to create elegant softwares
         </p>
-        <button class="btn btn-primary more" onclick="navigate('about')">
+        <button class="btn btn-primary more" onclick="navigate('services')">
             more
         </button>
     </section>
@@ -61,47 +61,45 @@
         </p>
     </section>
     <section id="projects">
-        <p style="
-        font-size: 24px;
-        margin-bottom: 0px;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
-    ">Our Milestones & Portfolio</p>
+        <p>Our Milestones & Portfolio</p>
         <div class="card-container">
             <div class="card-resp">
-                <p align="center" style="font-size: 20px;">What we focused on</p>
-                <ul>
+                <div class="ul-border">
+                    <p align="center" style="font-size: 20px;">What we focused on</p>
                     <ul>
-                        <p>Websites</p>
-                        <p>Android Apps</p>
-                        <p>Voice call applications</p>
-                        <p>Video call applications</p>
-                        <p>Chat applications</p>
-                        <p>Other server side setups</p>
+                        <li class="listing-link-style">Websites</li>
+                        <li class="listing-link-style">Android Apps</li>
+                        <li class="listing-link-style">Voice call applications</li>
+                        <li class="listing-link-style">Video call applications</li>
+                        <li class="listing-link-style">Chat applications</li>
+                        <li class="listing-link-style">Other server side setups</li>
                     </ul>
-                </ul>
+                </div>
             </div>
             <div class="card-resp">
-                <p align="center" style="font-size: 20px;">Software modules</p>
+                <div class="ul-border">
+                    <p align="center" style="font-size: 20px;">Software modules</p>
+                    <ul>
+                        <li><a href="https://firmtechdev.github.io/chat/" class="listing-link-style" target="_blank">Firmchat App</a> &#128279;</li>
+                    </ul>
+                </div>
             </div>
             <div class="card-resp">
-                <p align="center" style="font-size: 20px;">Websites</p>
-                <ul>
-                    <li><a href="https://bluecreekresort.com/" target="_blank">Blue Creek Village Resort</a><br>
-                        <!-- <text style="font-size: 10px;" onclick="navigate('faris')">faris</text>,  -->
-                        <!-- <text style="font-size: 10px;" onclick="navigate('rishad')">rishad</text> -->
-                    </li>
-                </ul>
+                <div class="ul-border">
+                    <p align="center" style="font-size: 20px;">Websites we done</p>
+                    <ul>
+                        <li><a href="https://bluecreekresort.com/" class="listing-link-style" target="_blank">Blue Creek Village Resort</a>&#128279;<br>
+                            <!-- <text style="font-size: 10px;" onclick="navigate('faris')">faris</text>,  -->
+                            <!-- <text style="font-size: 10px;" onclick="navigate('rishad')">rishad</text> -->
+                        </li>
+                        <li><a href="https://kittyowayanad.com/" class="listing-link-style" target="_blank">Kittyo Wayanad</a>&#128279;</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
     <section id="contact">
-        <p style="
-        font-size: 24px;
-        margin-bottom: 0px;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
-    ">We are Developers</p>
+        <p>We are Developers</p>
         <div class="card-container">
             <div class="card-resp" id="faris">
                 <div class="card-style">
@@ -109,14 +107,14 @@
                         <div class="card-dp" style="background-image: url(assets/faris.jpg);"></div>
                         <div style="padding-left: 25px;">
                             <h4>Faris</h4>
-                            <p style="font-size: 15px;">Add a short description</p>
+                            <p style="font-size: 15px;">CEO, full-stack developer</p>
                         </div>
                     </div>
                     <p onclick="window.open('tel:+91 85899 48199', '_blank');"><i class="material-icons"
                             style="font-size: 18px;">&#xe0b0;</i> PH: +91 85899 48199</p>
                     <p><i class="material-icons" style="font-size: 18px;">&#xe80b;</i> WEB: </p>
                     <p>Git: github.com/fariskh</p>
-                    <text>Add a detailed description if required (optional)</text>
+                    <text>Software engineer</text>
                 </div>
             </div>
             <div class="card-resp" id="rishad">
@@ -125,7 +123,7 @@
                         <div class="card-dp" style="background-image: url(assets/rishad.jpg);"></div>
                         <div style="padding-left: 25px;">
                             <h4>Rishad</h4>
-                            <p style="font-size: 15px;">Web developer</p>
+                            <p style="font-size: 15px;">CEO, Web developer</p>
                         </div>
                     </div>
                     <p onclick="window.open('tel:+91 85928 97844', '_blank');"><i class="material-icons"
@@ -143,7 +141,7 @@
                         <div class="card-dp" style="background-image: url(assets/musafar.jpg);"></div>
                         <div style="padding-left: 25px;">
                             <h4>Musafar</h4>
-                            <p style="font-size: 15px;">Add a short description</p>
+                            <p style="font-size: 15px;">CEO, Technical support</p>
                         </div>
                     </div>
                     <p onclick="window.open('tel:+971 58 130 2527', '_blank');"><i class="material-icons"
@@ -151,12 +149,17 @@
                     <p onclick="window.open('http://13.48.83.133:8004/', '_blank');"><i class="material-icons"
                             style="font-size: 18px;">&#xe80b;</i> WEB: 13.48.83.133:8004</p>
                     <p>Git: github.com/muzafirsakeen</p>
-                    <text>Add a detailed description if required (optional)</text>
+                    <text>#developer, #AI, AR&VR investigator</text>
                 </div>
             </div>
         </div>
     </section>
     <footer>
+        <div class="links-container-div">
+            <a href="mailto:firmtech.dev@gmail.com" style="background-image: url(./assets/gmail.svg);" class="sos-icon" target="_blank"></a>
+            <a href="https://www.instagram.com/firmtech_/" style="background-image: url(./assets/instagram.svg);" class="sos-icon" target="_blank"></a>
+            <a href="https://github.com/firmtechdev" style="background-image: url(./assets/github.svg);" class="sos-icon" target="_blank"></a>
+        </div>
         <p id="copy"></p>
     </footer>
 </body>
