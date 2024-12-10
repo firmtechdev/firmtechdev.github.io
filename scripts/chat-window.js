@@ -192,7 +192,7 @@ $(document).on('keypress', function (e) {
 	}
 });
 
-// setInterval(()=>{set_messages()},500);
+setInterval(()=>{set_messages()}, 2000);
 set_chat();
 set_messages();
 mdc_and_rippls();
