@@ -8,29 +8,41 @@ $(document).ready(function() {
 });
 
 function menu_toggle(){
-    if ($("#menu-btn").attr("class") === "menu")
-    {
+    if ($('.menu').attr('data') === 'opened') {
         // $("body").css("overflow-y", "hidden");
-        $("#menu-btn").attr("class","close");
+        $('.s1').attr('class', 'stick s1');
+        $('.s2').attr('class', 'stick s2');
+        $('.s3').attr('class', 'stick s3');
+        $('.menu').attr('data', 'clossed');
+        $('.menu-page').attr('class', 'menu-page menu-page-clossed');
+        
+        $("#menu-page>text").css("width", "0px");
+        $("#menu-page>text").css("transform", "rotateY(50deg)");
+
+        setTimeout(function(){
+            $("#menu-page").css("top","-100vh");
+            $("#menu-page").css("left","100vw");
+            $("#menu-page").css("border-radius","50px");
+
+        },400);
+    }
+    else if ($('.menu').attr('data') === 'clossed') {
+        // $("body").css("overflow-y", "auto");
+        $('.s1').attr('class', 'stick s1 s1-open');
+        $('.s2').attr('class', 'stick s2 s2-open');
+        $('.s3').attr('class', 'stick s3 s3-open');
+        $('.menu').attr('data', 'opened');
+        $('.menu-page').attr('class', 'menu-page menu-page-opened');
 
         $("#menu-page").css("top","5vh");
         $("#menu-page").css("left","-5vw");
         setTimeout(function(){
-            $("#menu-page > text").css("color","black");
             $("#menu-page").css("top","0vh");
             $("#menu-page").css("left","0vw");
             $("#menu-page").css("border-radius","0px");
+            $("#menu-page>text").css("width", "300px");
+            $("#menu-page>text").css("transform", "rotateY(15deg)");
         },400);
-    }
-    else if ($("#menu-btn").attr("class") === "close")
-    {
-        // $("body").css("overflow-y", "auto");
-        $("#menu-btn").attr("class","menu");
-
-        $("#menu-page").css("top","-100vh");
-        $("#menu-page").css("left","100vw");
-            $("#menu-page > text").css("color","transparent");
-            $("#menu-page").css("border-radius","50px");
     }
 }
 

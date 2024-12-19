@@ -14,12 +14,10 @@
 </head>
 
 <body>
-    <div id="menu-btn" class="menu">
-        <span>
-            <span class="s1"></span>
-            <span class="s2"></span>
-            <span class="s3"></span>
-        </span>
+    <div class="menu" data="clossed" onclick="menu_toggle()">
+        <div class="stick s1"></div>
+        <div class="stick s2"></div>
+        <div class="stick s3"></div>
     </div>
     <div class="top-navbar">
         <div class="logo-div">
@@ -27,10 +25,10 @@
         </div>
     </div>
     <div id="menu-page" onmousewheel="event.preventDefault()" ontouchmove="event.preventDefault()">
-        <text onclick="navigate_menu('home')">About us</text>
-        <text onclick="navigate_menu('services')">What we do</text>
-        <text onclick="navigate_menu('projects')">What we done</text>
-        <text onclick="navigate_menu('contact')">Contact Us</text>
+        <text class="i1" onclick="navigate_menu('home')">About us</text>
+        <text class="i2" onclick="navigate_menu('services')">What we do</text>
+        <text class="i3" onclick="navigate_menu('projects')">What we done</text>
+        <text class="i4" onclick="navigate_menu('contact')">Contact Us</text>
     </div>
 
     <section id="home">
