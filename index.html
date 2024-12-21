@@ -13,7 +13,10 @@
     <script type="text/javascript" src="scripts/index.js"></script>
 </head>
 
-<body>
+<body onload="boot_end();">
+    <div id="boot">
+        <div id="boot-logo"></div>
+    </div>
     <div class="menu" data="clossed" onclick="menu_toggle()">
         <div class="stick s1"></div>
         <div class="stick s2"></div>
@@ -79,6 +82,10 @@
                     <p align="center" style="font-size: 20px;">Software modules</p>
                     <ul>
                         <li><a href="https://firmtechdev.github.io/chat/" class="listing-link-style" target="_blank">Firmchat App</a> &#128279;</li>
+                        <div>
+                            <img src="assets/device-frame.png" class="device-frame" />
+                            <div class="device-screen"></div>
+                        </div>
                     </ul>
                 </div>
             </div>

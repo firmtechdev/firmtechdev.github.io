@@ -11,7 +11,33 @@ body {
 	/*color:auto;*/
 	font-family: sans-serif;
 }
-
+#boot{
+	width: 100vw;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	z-index: 6;
+	transition: 500ms;
+	background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective:500px;
+}
+#boot-logo{
+	width: 1vh;
+	height: 1vh;
+	transition: 400ms;
+	background-image: url('../assets/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    transform: rotateX(-80deg) rotateY(-80deg);
+}
+#boot-logo:hover{
+	box-shadow: 0px 0px 0px 4px yellow;
+}
 .logo-div {
 	margin-left: 30px;
 }
@@ -103,8 +129,7 @@ body {
 }
 
 #menu-page>text {
-	margin: 15px 0px;
-	padding-left: 5vw;
+	margin: 15px 5vw;
 	width: 0px;
 	color: #005686;
 	transform: rotateY(50deg);
@@ -260,6 +285,14 @@ fieldset:disabled a.btn {
 
 ul{
 	list-style-type: disc;
+}
+
+.device-frame{
+	width: 300px;
+}
+.device-screen{
+	width: 100%;
+	background: blue;
 }
 
 .card-container {

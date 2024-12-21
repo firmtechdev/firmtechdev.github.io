@@ -7,6 +7,29 @@ $(document).ready(function() {
     $("#copy").html("firmtech &copy; 2017-" + new Date().getFullYear().toString());
 });
 
+r = 0;
+setTimeout(()=>{
+    $("#boot-logo").css("transform", "rotateX(-45deg) rotateY(-45deg)");
+    $("#boot-logo").css("width", "50vh");
+    $("#boot-logo").css("height", "50vh");
+    setInterval(()=>{
+        $("#boot-logo").css("transform", "rotateX("+r+"deg) rotateY("+r+"deg) rotate("+r+"deg)");
+        r = r+1;
+    },50);
+},200);
+function boot_end() {
+    setTimeout(()=>{
+        $("#boot-logo").css("width", "0vh");
+        $("#boot-logo").css("height", "0vh");
+        setTimeout(()=>{
+            $("#boot").css("opacity", "0");
+            setTimeout(()=>{
+                $("#boot").css("display", "none");
+            },500);
+        },500);
+    },3000);
+}
+
 function menu_toggle(){
     if ($('.menu').attr('data') === 'opened') {
         // $("body").css("overflow-y", "hidden");
@@ -15,7 +38,7 @@ function menu_toggle(){
         $('.s3').attr('class', 'stick s3');
         $('.menu').attr('data', 'clossed');
         $('.menu-page').attr('class', 'menu-page menu-page-clossed');
-        
+
         $("#menu-page>text").css("width", "0px");
         $("#menu-page>text").css("transform", "rotateY(50deg)");
 
