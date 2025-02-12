@@ -32,12 +32,24 @@ body {
 	background-image: url('../assets/logo.svg');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
     transform: rotateX(-80deg) rotateY(-80deg);
+    animation: rotateAnimation 20s linear infinite;
 }
+
 #boot-logo:hover{
-	box-shadow: 0px 0px 0px 4px yellow;
+	box-shadow: 0px 0px 0px 4px #00b2e7;
 }
+
+@keyframes rotateAnimation {
+	0% {
+		transform: rotateX(0deg) rotateY(0deg) rotate(0deg);
+	}
+	100% {
+		transform: rotateX(360deg) rotateY(360deg) rotate(360deg);
+	}
+}
+
 .logo-div {
 	margin-left: 30px;
 }
@@ -287,9 +299,13 @@ ul{
 	list-style-type: disc;
 }
 
+
+
 .device-frame{
-	width: 300px;
+	width: 190px;
+	height: 390px;
 }
+
 .device-screen{
 	width: 100%;
 	background: blue;
@@ -418,22 +434,15 @@ footer {
 		color: #005686;
 	}
 
-/*	#menu-btn {
-		z-index: 5;
-		display: inline-block;
-		width: 4em;
-		height: 4em;
-		background: #ffffff40;
-		backdrop-filter: blur(10px);
-		border-radius: 1em;
-		overflow: hidden;
-		transform: translateZ(0);
-		transition: all 0.5s ease;
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		position: fixed;
-		right: 10px;
-		top: 10px;
-	}*/
+	.device-container{
+		width: 100%;
+/*		height: 390px;*/
+	}
+
+	.laptop-frame{
+		width: 410px;
+	}
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -487,22 +496,14 @@ footer {
 		color: #005686;
 	}
 
-/*	#menu-btn {
-		z-index: 5;
-		display: inline-block;
-		width: 4em;
-		height: 4em;
-		background: #ffffff40;
-		backdrop-filter: blur(10px);
-		border-radius: 1em;
-		overflow: hidden;
-		transform: translateZ(0);
-		transition: all 0.5s ease;
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		position: fixed;
-		right: 10px;
-		top: 10px;
-	}*/
+	.device-container{
+		width: 100%;
+/*		height: 390px;*/
+		display: flex;
+	}
+	.laptop-frame{
+		width: 410px;
+	}
 }
 
 

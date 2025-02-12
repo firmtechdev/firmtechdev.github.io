@@ -7,17 +7,18 @@ $(document).ready(function() {
     $("#copy").html("firmtech &copy; 2017-" + new Date().getFullYear().toString());
 });
 
-r = 0;
 setTimeout(()=>{
     $("#boot-logo").css("transform", "rotateX(-45deg) rotateY(-45deg)");
     $("#boot-logo").css("width", "50vh");
     $("#boot-logo").css("height", "50vh");
-    setInterval(()=>{
-        $("#boot-logo").css("transform", "rotateX("+r+"deg) rotateY("+r+"deg) rotate("+r+"deg)");
-        r = r+1;
-    },50);
 },200);
 function boot_end() {
+    setTimeout(()=>{
+        $("#boot").css("backdrop-filter", "blur(10px)");
+    },1500);
+    setTimeout(()=>{
+        $("#boot").css("background", "#ffffff80");
+    },2000);
     setTimeout(()=>{
         $("#boot-logo").css("width", "0vh");
         $("#boot-logo").css("height", "0vh");
