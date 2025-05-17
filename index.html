@@ -10,16 +10,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
 </head>
 
-<body>
-    <div id="menu-btn" class="menu">
-        <span>
-            <span class="s1"></span>
-            <span class="s2"></span>
-            <span class="s3"></span>
-        </span>
+<body onload="boot_end();">
+    <div id="boot">
+        <div id="boot-logo"></div>
+    </div>
+    <div class="menu" data="clossed" onclick="menu_toggle()">
+        <div class="stick s1"></div>
+        <div class="stick s2"></div>
+        <div class="stick s3"></div>
     </div>
     <div class="top-navbar">
         <div class="logo-div">
@@ -27,15 +30,37 @@
         </div>
     </div>
     <div id="menu-page" onmousewheel="event.preventDefault()" ontouchmove="event.preventDefault()">
-        <text onclick="navigate_menu('home')">About us</text>
-        <text onclick="navigate_menu('services')">What we do</text>
-        <text onclick="navigate_menu('projects')">What we done</text>
-        <text onclick="navigate_menu('contact')">Contact Us</text>
+        <text class="i1" onclick="navigate_menu('home')">&nbsp;About us</text>
+        <text class="i2" onclick="navigate_menu('services')">&nbsp;What we do</text>
+        <text class="i3" onclick="navigate_menu('projects')">&nbsp;What we done</text>
+        <text class="i4" onclick="navigate_menu('contact')">&nbsp;Contact Us</text>
     </div>
 
     <section id="home">
         <label class="description">
-            Firmtech is a Software development company.
+            <!-- Firmtech is a Software development company.
+            The company has a proud legacy spanning of
+            over 3 successful years of software development
+            Firmtech was born in 26th August 2017 as a
+            brainchild of three professionals Muhammed Faris
+            , Rishad and Musafar Sakeen
+            Specialized in Software developing, Web
+            developing, Android developing, Cloud
+            computing, Virtual reality and Ogmented reality -->
+        </label>
+        <p id="description">
+            
+        </p>
+        <button class="btn btn-primary more" style="visibility: hidden;">
+            more
+        </button>
+    </section>
+
+  <!-- <div class="spacer"></div> -->
+  <section class="pinned-fade">
+    <div class="fade-text">
+      <p style="font-size: 1.5rem;">
+        Firmtech is a Software development company.
             The company has a proud legacy spanning of
             over 3 successful years of software development
             Firmtech was born in 26th August 2017 as a
@@ -44,22 +69,21 @@
             Specialized in Software developing, Web
             developing, Android developing, Cloud
             computing, Virtual reality and Ogmented reality
-        </label>
-        <p>
-            Blends innovation and artistry to create elegant softwares
-        </p>
-        <button class="btn btn-primary more" onclick="navigate('services')">
-            more
-        </button>
-    </section>
-    <section id="services">
-        <p>
+      </p>
+    </div>
+  </section>
+<!-- <div class="spacer"></div> -->
+  <section id="services" class="pinned-scale">
+    <div class="scale-text">
+      <p style="font-size: 2rem;">
             We provides web applications, softwares and <br />
             Android applications development <br />
             in elegant user experience, animated and <br />
             impressive users interfaces
-        </p>
-    </section>
+      </p>
+    </div>
+  </section>
+<!-- <div class="spacer"></div> -->
     <section id="projects">
         <p>Our Milestones & Portfolio</p>
         <div class="card-container">
@@ -81,6 +105,10 @@
                     <p align="center" style="font-size: 20px;">Software modules</p>
                     <ul>
                         <li><a href="https://firmtechdev.github.io/chat/" class="listing-link-style" target="_blank">Firmchat App</a> &#128279;</li>
+                        <div class="screenshort-container">
+                            <img src="assets/chat-app-home.png" height="100%">
+                            <img src="assets/chat-app-chat-window.png" height="100%">
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -162,5 +190,4 @@
         <p id="copy"></p>
     </footer>
 </body>
-
 </html>
