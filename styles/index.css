@@ -37,10 +37,6 @@ body {
     animation: rotateAnimation 20s linear infinite;
 }
 
-#boot-logo:hover{
-	box-shadow: 0px 0px 0px 4px #00b2e7;
-}
-
 @keyframes rotateAnimation {
 	0% {
 		transform: rotateX(0deg) rotateY(0deg) rotate(0deg);
@@ -168,6 +164,22 @@ body {
 }
 .i4{
 	transition: 1400ms;
+}
+
+.spacer {
+	height: 100vh;
+}
+section.pinned-fade,section.pinned-scale {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.fade-text, .scale-text {
+	text-align: center;
+	opacity: 0;
+	transform: scale(0.8);
 }
 
 section {
@@ -299,18 +311,6 @@ ul{
 	list-style-type: disc;
 }
 
-
-
-.device-frame{
-	width: 190px;
-	height: 390px;
-}
-
-.device-screen{
-	width: 100%;
-	background: blue;
-}
-
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -363,6 +363,20 @@ footer {
     font-family: monospace;
     font-size: 20px;
     color: #005686;
+}
+
+.screenshort-container{
+	width: 100%;
+	height: 390px;
+	display: flex;
+	overflow: scroll;
+	padding: 16px 0px;
+}
+
+.screenshort-container>img{
+    box-shadow: 0px 0px 0px 6px gray;
+    margin: 0px 16px;
+    border-radius: 12px;
 }
 
 #copy {
@@ -430,17 +444,12 @@ footer {
 		font-size: 20px;
 	}
 
-	#services>p {
+	.fade-text>p{
+		text-align: center;
+	}
+
+	.scale-text>p {
 		color: #005686;
-	}
-
-	.device-container{
-		width: 100%;
-/*		height: 390px;*/
-	}
-
-	.laptop-frame{
-		width: 410px;
 	}
 
 }
@@ -492,17 +501,12 @@ footer {
 		font-size: 35px;
 	}
 
-	#services>p {
-		color: #005686;
+	.fade-text>p{
+		text-align: justify;
 	}
 
-	.device-container{
-		width: 100%;
-/*		height: 390px;*/
-		display: flex;
-	}
-	.laptop-frame{
-		width: 410px;
+	.scale-text>p {
+		color: #005686;
 	}
 }
 
